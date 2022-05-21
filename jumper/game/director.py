@@ -16,6 +16,8 @@ class Director:
     Attributes:
         is_playing (boolean): Whether or not to keep playing.
         terminal_service: For getting and displaying information on the terminal.
+        parachute: displaying the parachute image according to user guess
+        word: generated random word from the word list to guess from
     """
 
     def __init__(self):
@@ -38,23 +40,26 @@ class Director:
             self._do_outputs()
 
     def _get_inputs(self):
-        """Update this comment
+        """Get the generated random word
         Args:
             self (Director): An instance of Director.
         """
         self.word
 
     def _do_updates(self):
-        """Update this comment
+        """Display the parachute image according to user's guess
         Args:
             self (Director): An instance of Director.
         """
-        self.parachute._process()
+        self.parachute.process()
 
     def _do_outputs(self):
-        """Update this comment
+        """Display the word to guess
         Args:
             self (Director): An instance of Director.
         """
-        self._terminal_service
-        pass
+        selected_word = "The random word to guess was: " + self.word;
+        self._terminal_service.write_text(selected_word);
+        if self.word:
+            self._is_playing = False;
+      

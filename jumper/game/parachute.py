@@ -3,7 +3,18 @@ from game.word import words
 
 
 class Parachute:
-    
+    """The parachute image determining the limit of the game. 
+    The responsibility of a Parachute is to display the image of the parachute and reduces its gliders if the user makes an erroneous guess
+    Attributes:
+        word: the generated random word from the set word list
+        guess: a letter guessed by the user
+        reveal: reveal correctly guessed letter
+        lives: total user lives
+        won: user has won
+        lose: user has lost
+        jumper: parachute image states
+        
+    """
 
     def __init__(self):
       self.word = words
@@ -59,7 +70,7 @@ class Parachute:
     
     
     
-  def check(self, letter, word):
+    def _check(self, letter, word):
 
       for i in range(0,len(self.word)):
           letter = self.word[i]
@@ -71,21 +82,21 @@ class Parachute:
           return False
 
 
-    def glider(self):
+    def _glider(self):
       print(self.jumper[4 - self.lives])
       print(self.reveal)
       
-    def _process(self):
+    def process(self):
       while self.won == False and self.lives > 0:
-          self.glider()
+          self._glider()
           self.guess = input('guess letter [a-z]: ')
           self.guess = self.guess.upper()
           
           if self.guess == self.word:
               self.won = True
-              self.reaveal = self.word
+              self.reveal = self.word
           if len(self.guess) == 1 and self.guess in self.word:
-              self.won = self.check(self.guess, self.word)   
+              self.won = self._check(self.guess, self.word)   
           else:
               self.lives-=1
           if self.won == True:
@@ -99,5 +110,5 @@ class Parachute:
               print(self.jumper[4])
               print("You've lost")
               self.lost = False
-              print(self.word)
+
 
