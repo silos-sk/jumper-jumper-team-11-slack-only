@@ -60,7 +60,6 @@ class Parachute:
     
     
   def check(self, letter, word):
-      """Checks the word to see is the letter guessed is in the word."""
 
       for i in range(0,len(self.word)):
           letter = self.word[i]
