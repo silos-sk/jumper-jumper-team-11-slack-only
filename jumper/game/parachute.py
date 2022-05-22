@@ -1,12 +1,12 @@
 import random
-from game.word import Word
+from game.word import words
 
 
 class Parachute:
     """The parachute image determining the limit of the game. 
     The responsibility of a Parachute is to display the image of the parachute and reduces its gliders if the user makes an erroneous guess
     Attributes:
-        word: the generated random word from the Word class.
+        word: the generated random word from the set word list
         guess: a letter guessed by the user
         reveal: reveal correctly guessed letter
         lives: total user lives
@@ -17,10 +17,9 @@ class Parachute:
     """
 
     def __init__(self):
-      self._word = Word()
-      self._secret_word = self._word._secret_word
+      self.word = words
       self.guess = ""
-      self.reveal = list(len(self._secret_word)*'_')
+      self.reveal = list(len(self.word)*'_')
       self.lives = 4
       self.won = False
       self.lose = False
@@ -73,8 +72,8 @@ class Parachute:
     
     def _check(self, letter, word):
 
-      for i in range(0,len(self._secret_word)):
-          letter = self._secret_word[i]
+      for i in range(0,len(self.word)):
+          letter = self.word[i]
           if self.guess == letter:
               self.reveal[i] = self.guess
       if '_' not in self.reveal:
@@ -93,15 +92,15 @@ class Parachute:
           self.guess = input('guess letter [a-z]: ')
           self.guess = self.guess.upper()
           
-          if self.guess == self._secret_word:
+          if self.guess == self.word:
               self.won = True
-              self.reveal = self._secret_word
-          if len(self.guess) == 1 and self.guess in self._secret_word:
-              self.won = self._check(self.guess, self._secret_word)   
+              self.reveal = self.word
+          if len(self.guess) == 1 and self.guess in self.word:
+              self.won = self._check(self.guess, self.word)   
           else:
               self.lives-=1
           if self.won == True:
-              print(f"nice! you guessed {self._secret_word}")
+              print(f"nice! you guessed {self.word}")
               print("")
           else:
               print(" ")
@@ -111,5 +110,3 @@ class Parachute:
               print(self.jumper[4])
               print("You've lost")
               self.lost = False
-
-
