@@ -28,7 +28,7 @@ class Director:
         self._is_playing = True
         self._terminal_service = TerminalService()
         self.parachute = Parachute()
-        self.word = Word()
+        self._word = Word()
     def start_game(self):
         """Starts the game by running the main game loop.
         Args:
@@ -44,7 +44,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self.word.words
+        self._word._words
 
     def _do_updates(self):
         """Display the parachute image according to user's guess
@@ -58,7 +58,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        selected_word = "The random word to guess was: " + self.word.words;
+        selected_word = "The random word to guess was: " + self._word._words;
         self._terminal_service.write_text(selected_word);
-        if self.word.words:
+        if self._word._words:
             self._is_playing = False;
