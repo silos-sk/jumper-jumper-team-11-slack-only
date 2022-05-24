@@ -17,9 +17,9 @@ class Parachute:
     """
 
     def __init__(self):
-      self.word = Word()
+      self._word = Word()
       self.guess = ""
-      self.reveal = list(len(self.word.words)*'_')
+      self.reveal = list(len(self._word._words)*'_')
       self.lives = 4
       self.won = False
       self.lose = False
@@ -72,8 +72,8 @@ class Parachute:
     
     def _check(self, letter, word):
 
-      for i in range(0,len(self.word.words)):
-          letter = self.word.words[i]
+      for i in range(0,len(self._word._words)):
+          letter = self._word._words[i]
           if self.guess == letter:
               self.reveal[i] = self.guess
       if '_' not in self.reveal:
@@ -92,15 +92,15 @@ class Parachute:
           self.guess = input('guess letter [a-z]: ')
           self.guess = self.guess.upper()
           
-          if self.guess == self.word.words:
+          if self.guess == self._word._words:
               self.won = True
-              self.reveal = self.word.words
-          if len(self.guess) == 1 and self.guess in self.word.words:
-              self.won = self._check(self.guess, self.word.words)   
+              self.reveal = self._word._words
+          if len(self.guess) == 1 and self.guess in self._word._words:
+              self.won = self._check(self.guess, self._word._words)   
           else:
               self.lives-=1
           if self.won == True:
-              print(f"nice! you guessed {self.word.words}")
+              print(f"nice! you guessed {self._word._words}")
               print("")
           else:
               print(" ")
@@ -110,3 +110,4 @@ class Parachute:
               print(self.jumper[4])
               print("You've lost")
               self.lost = False
+
