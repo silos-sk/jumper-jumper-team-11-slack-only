@@ -25,7 +25,7 @@ class TerminalService:
             prompt (string): The prompt to display on the terminal.
 
         Returns:
-            float: The user's input as a number.
+            string: The user's input as a letter in lowercase.
         """
         return input(prompt).lower()
         
