@@ -1,3 +1,4 @@
+import random
 from game.word import Word
 
 
@@ -16,17 +17,10 @@ class Parachute:
     """
 
     def __init__(self):
-      '''
-         Responsibility:
-         To construct a new Parachute.
-
-         Args:
-         self (Parachute): an instance of Parachute.
-      '''  
-
-      self._word = Word().words() 
+      self._word = Word()
+      self._secret = self._word._words
       self.guess = ""
-      self.reveal = list(len(self._word)*'_')
+      self.reveal = list(len(self._word._words)*'_')
       self.lives = 4
       self.won = False
       self.lose = False
@@ -78,18 +72,9 @@ class Parachute:
     
     
     def _check(self, letter, word):
-      '''
-         Responsibility:
-         To track the guess and the letter in the word.
 
-         Args:
-         self (Parachute): an instance of Parachute.
-         letter (string): the guessed letter.
-         word (string): the random word to be guessed.
-      '''
-
-      for i in range(0, len(word)):
-          letter = word[i]
+      for i in range(0,len(self._secret)):
+          letter = self._secret[i]
           if self.guess == letter:
               self.reveal[i] = self.guess
       if '_' not in self.reveal:
@@ -99,40 +84,24 @@ class Parachute:
 
 
     def _glider(self):
-      '''
-         Responsibility:
-         To cut off a line from the parachute and show the correct guessed letters. 
-
-         Args:
-         self (Parachute): an instance of Parachute.
-      '''
-
       print(self.jumper[4 - self.lives])
       print(self.reveal)
       
     def process(self):
-      '''
-         Responsibility:
-         To
-         
-         Args:
-         self (Parachute): an instance of Parachute.
-      '''
-
       while self.won == False and self.lives > 0:
           self._glider()
           self.guess = input('guess letter [a-z]: ')
           self.guess = self.guess.upper()
           
-          if self.guess == self._word:
+          if self.guess == self._secret:
               self.won = True
-              self.reveal = self._word
-          if len(self.guess) == 1 and self.guess in self._word:
-              self.won = self._check(self.guess, self._word)   
+              self.reveal = self._secret
+          if len(self.guess) == 1 and self.guess in self._secret:
+              self.won = self._check(self.guess, self._secret)   
           else:
               self.lives-=1
           if self.won == True:
-              print(f"nice! you guessed {self._word}")
+              print(f"nice! you guessed {self._secret}")
               print("")
           else:
               print(" ")
@@ -142,4 +111,3 @@ class Parachute:
               print(self.jumper[4])
               print("You've lost")
               self.lost = False
-
