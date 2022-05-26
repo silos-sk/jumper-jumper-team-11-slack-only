@@ -17,7 +17,7 @@ class Director:
         is_playing (boolean): Whether or not to keep playing.
         terminal_service: For getting and displaying information on the terminal.
         parachute: displaying the parachute image according to user guess
-        word: generated random word from the word list to guess from
+        _secret_word: generated random word from the word list to guess from
     """
 
     def __init__(self):

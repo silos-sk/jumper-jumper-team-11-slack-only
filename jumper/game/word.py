@@ -1,7 +1,14 @@
 import random
 class Word:
  def __init__(self):
-  display_list = ["abruptly", "absurd", "abyss", "affix", "askew", "avenue", "awkward", "axiom",
+   """
+      Responsibility:
+       Selects a random words from a list of words.
+       Attributes:
+         display_list (List[string]): A list of words to select from.
+         _words (str): Random word selected from the list.
+   """
+   display_list = ["abruptly", "absurd", "abyss", "affix", "askew", "avenue", "awkward", "axiom",
 "azure", "bagpipes", "bandwagon", "banjo", "bayou", "beekeeper", "bikini", "blitz", "blizzard", "boggle",
 "bookworm", "boxcar", "boxful", "buckaroo", "buffalo", "buffoon", "buxom", "buzzard", "buzzing",
 "buzzwords", "caliph", "cobweb", "cockiness", "croquet", "crypt", "curacao", "cycle", "daiquiri",
@@ -16,4 +23,4 @@ class Word:
 "transcript", "transgress", "unknown", "unworthy", "unzip", "uptown", "vaporize", "vixen", "vodka",
 "voodoo", "vortex", "walkway", "waltz", "wave", "wavy", "wyvern", "xylophone", "yachtsman", "yippee", "yoked",
 "youthful", "yummy", "zephyr", "zigzag", "zigzagging", "zilch", "zombie"]  
-  self._words = random.choice(display_list).upper()
+   self._words = random.choice(display_list).upper()

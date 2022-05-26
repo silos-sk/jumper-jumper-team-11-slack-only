@@ -6,7 +6,7 @@ class Parachute:
     """The parachute image determining the limit of the game. 
     The responsibility of a Parachute is to display the image of the parachute and reduces its gliders if the user makes an erroneous guess
     Attributes:
-        word: the generated random word from the set word list
+        secret: the generated random word from the set word list
         guess: a letter guessed by the user
         reveal: reveal correctly guessed letter
         lives: total user lives
