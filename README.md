@@ -12,5 +12,7 @@ If the guess is incorrect, a line is cut on the player's parachute.
 If the puzzle is solved the game is over.
 If the player has no more parachute the game is over.
 
+Added an additional function to display the word that you did not guessed in director class def _do_outputs(self)
+
 ## Team
 Daniel Muzo, Annaleisa Perry, Ricardo Rivas, Shaira Silos, Bright Yafesi
