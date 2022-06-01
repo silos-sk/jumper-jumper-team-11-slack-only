@@ -7,11 +7,9 @@ class TerminalService:
      
     def read_text(self, prompt):
         """Gets text input from the terminal. Directs the user with the given prompt.
-
         Args: 
             self (TerminalService): An instance of TerminalService.
             prompt (string): The prompt to display on the terminal.
-
         Returns:
             string: The user's input as text.
         """
@@ -19,19 +17,16 @@ class TerminalService:
 
     def read_letter(self, prompt):
         """Gets alphabetical input from the terminal. Directs the user with the given prompt.
-
         Args: 
             self (TerminalService): An instance of TerminalService.
             prompt (string): The prompt to display on the terminal.
-
         Returns:
-            string: The user's input as a letter in lowercase.
+            float: The user's input as a number.
         """
         return input(prompt).lower()
         
     def write_text(self, text):
         """Displays the given text on the terminal. 
-
         Args: 
             self (TerminalService): An instance of TerminalService.
             text (string): The text to display.
