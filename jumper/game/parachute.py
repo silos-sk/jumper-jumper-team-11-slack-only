@@ -18,10 +18,10 @@ class Parachute:
     """
 
     def __init__(self):
-      self.word = Word()
+      self.word = Word().get_words()
       self.terminal_service = TerminalService()
       self._guess = ""
-      self._reveal = list(len(self.word._words)*'_')
+      self._reveal = list(len(self.word)*'_')
       self._lives = 4
       self._won = False
       self._lose = False
@@ -79,8 +79,8 @@ class Parachute:
       self(_reveal): An instance of Parachute.
       """
 
-      for i in range(0,len(self.word._words)):
-          letter = self.word._words[i]
+      for i in range(0,len(self.word)):
+          letter = self.word[i]
           if self._guess == letter:
               self._reveal[i] = self._guess
       if '_' not in self._reveal:
@@ -109,15 +109,15 @@ class Parachute:
           self._guess = input('guess letter [a-z]: ')
           self._guess = self._guess.upper()
           
-          if self._guess == self.word._words:
+          if self._guess == self.word:
               self._won = True
-              self._reveal = self.word._words
-          if len(self._guess) == 1 and self._guess in self.word._words:
-              self._won = self._check(self._guess, self.word._words)   
+              self._reveal = self.word
+          if len(self._guess) == 1 and self._guess in self.word:
+              self._won = self._check(self._guess, self.word)   
           else:
               self._lives-=1
           if self._won == True:
-              self.terminal_service.write_text(f"You have found the correct word! Congratulations! Game over {self.word._words}")
+              self.terminal_service.write_text(f"You have found the correct word! Congratulations! Game over {self.word}")
               self.terminal_service.write_text("")
           else:
               self.terminal_service.write_text(" ")
