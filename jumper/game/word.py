@@ -8,7 +8,7 @@ class Word:
          display_list (List[string]): A list of words to select from.
          _words (str): Random word selected from the list.
   """
-  display_list = ["abruptly", "absurd", "abyss", "affix", "askew", "avenue", "awkward", "axiom",
+  self._words = ["abruptly", "absurd", "abyss", "affix", "askew", "avenue", "awkward", "axiom",
 "azure", "bagpipes", "bandwagon", "banjo", "bayou", "beekeeper", "bikini", "blitz", "blizzard", "boggle",
 "bookworm", "boxcar", "boxful", "buckaroo", "buffalo", "buffoon", "buxom", "buzzard", "buzzing",
 "buzzwords", "caliph", "cobweb", "cockiness", "croquet", "crypt", "curacao", "cycle", "daiquiri",
@@ -22,5 +22,7 @@ class Word:
 "rickshaw", "schnapps", "scratch", "shiv", "snazzy", "sphinx", "thriftless", "thumbscrew", "topaz",
 "transcript", "transgress", "unknown", "unworthy", "unzip", "uptown", "vaporize", "vixen", "vodka",
 "voodoo", "vortex", "walkway", "waltz", "wave", "wavy", "wyvern", "xylophone", "yachtsman", "yippee", "yoked",
-"youthful", "yummy", "zephyr", "zigzag", "zigzagging", "zilch", "zombie"]  
-  self._words = random.choice(display_list).upper()
+"youthful", "yummy", "zephyr", "zigzag", "zigzagging", "zilch", "zombie"] 
+ def get_words(self): 
+  display_list = random.choice(self._words).upper()
+  return display_list
