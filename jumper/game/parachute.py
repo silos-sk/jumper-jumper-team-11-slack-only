@@ -68,8 +68,6 @@ class Parachute:
           
           ^^^^^^^"""}
     
-    
-    
     def _check(self, letter, word):
 
       for i in range(0,len(self.word)):
@@ -84,7 +82,8 @@ class Parachute:
 
     def _glider(self):
       print(self.jumper[4 - self.lives])
-      print(self.reveal)
+      self.reveal_join =  " ".join(self.reveal)
+      print(self.reveal_join)
       
     def process(self):
       while self.won == False and self.lives > 0:
