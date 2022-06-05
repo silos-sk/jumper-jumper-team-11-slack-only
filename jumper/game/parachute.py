@@ -88,9 +88,13 @@ class Parachute:
 
 
     def _glider(self):
-      print(self.jumper[4 - self.lives])
-      self.reveal_join =  " ".join(self.reveal)
-      print(self.reveal_join)
+      """Function that creates the parachute and updates it.
+      Args:
+        Print the parachute form.
+      """
+      print(self._jumper[4 - self._lives])
+      self._reveal_join =  " ".join(self._reveal)
+      print(self._reveal_join)
       
     def process(self):
       """
