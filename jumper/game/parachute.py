@@ -70,8 +70,6 @@ class Parachute:
           
           ^^^^^^^"""}
     
-    
-    
     def _check(self, letter, word):
       """ 
       Function that returns true or false if the parachute is present or not.
@@ -95,7 +93,8 @@ class Parachute:
         Print the parachute form.
       """
       print(self._jumper[4 - self._lives])
-      print(self._reveal)
+      self._reveal_join =  " ".join(self._reveal)
+      print(self._reveal_join)
       
     def process(self):
       """
